@@ -25,11 +25,21 @@ namespace HeadCheckerTron
                 csvTable.Load(csvReader);
             }
 
-            string Column1 = csvTable.Columns[0].ToString();
+            //string Column1 = csvTable.Columns[1].ToString();
 
-            Console.WriteLine(Column1);
+            //Console.WriteLine(Column1);
 
-            Console.Read();
+            //Console.Read();
+
+            foreach (DataRow row in csvTable.Rows)
+            {
+                //Console.WriteLine(row.ItemArray[1]);
+                var path = row["path"].ToString();
+                //Console.WriteLine(path);
+                CheckImage(path);
+            }
+            
+
         }
 
         private static void CheckImage(string url)
