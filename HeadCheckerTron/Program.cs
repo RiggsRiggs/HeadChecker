@@ -14,33 +14,18 @@ namespace HeadCheckerTron
 
         static void Main(string[] args)
         {
-            //var url = "http://med04.expertagent.co.uk/in4glestates/{7f8820d0-bb78-4105-8c70-ca5d23a41492}/{fa318b73-a054-41a6-b4ce-5c86b4e0b99a}/Photo1.jpg";
-            //
-            //
-            //CheckImage(url);
-
             var csvTable = new DataTable();
             using (var csvReader = new CsvReader(new StreamReader(System.IO.File.OpenRead(FileToUse)), true))
             {
                 csvTable.Load(csvReader);
             }
-
-            //string Column1 = csvTable.Columns[1].ToString();
-
-            //Console.WriteLine(Column1);
-
-            //Console.Read();
-
+            
             foreach (DataRow row in csvTable.Rows)
             {
-                //Console.WriteLine(row.ItemArray[1]);
                 var path = row["path"].ToString();
-                //Console.WriteLine(path);
                 CheckImage(path);
             }
-            
-
-        }
+         }
 
         private static void CheckImage(string url)
         {
