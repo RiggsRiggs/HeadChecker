@@ -19,11 +19,16 @@ namespace HeadCheckerTron
             {
                 csvTable.Load(csvReader);
             }
+
+            csvTable.Columns.Add("PathFix", typeof(System.String));
             
             foreach (DataRow row in csvTable.Rows)
             {
                 var path = row["path"].ToString();
-                CheckImage(path);
+                //CheckImage(path);
+                row["PathFix"] = "AEffingStringInnit";
+                Console.WriteLine(row["PathFix"]);
+
             }
          }
 
